@@ -20,15 +20,14 @@ const commandList: [string, number][] = inputText
   .split("\n")
   .map(([dir, ...count]) => [dir, Number(count.join(""))]);
 
-
 function countZeroes(commands: [string, number][]): number {
   let zeroCount: number = 0;
-  let dialPosition:number = STARTING_DIAL_POSITION;
+  let dialPosition: number = STARTING_DIAL_POSITION;
   for (const [direction, count] of commands) {
     if (direction === "R") {
-      dialPosition=turnRight(count,dialPosition);
+      dialPosition = turnRight(count, dialPosition);
     } else {
-      dialPosition=turnLeft(count,dialPosition);
+      dialPosition = turnLeft(count, dialPosition);
     }
     if (dialPosition === 0) {
       zeroCount++;
