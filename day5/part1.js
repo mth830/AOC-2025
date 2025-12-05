@@ -7,7 +7,7 @@ for (const line of inputText.split('\n')) {
     const [start, end] = line.split('-');
     ranges.push([Number(start), Number(end)]);
   } else {
-    ingredients.push(Number(line))
+    ingredients.push(Number(line));
   }
 }
 
@@ -19,7 +19,7 @@ const insideRange = (start, end, item) => {
 };
 
 const isFresh = (ingredient)=>{
-  return ranges.some(([start, end]) => insideRange(start, end, ingredient))
+  return ranges.some(([start, end]) => insideRange(start, end, ingredient));
 };
 
 for (const ingredient of ingredients) {

@@ -9,7 +9,7 @@ for (const line of inputText.split('\n')) {
 }
 
 ranges.sort(([start1, end1], [start2, end2]) =>
-  start1 === start2 ? end1 - end2 : start1 - start2
+  start1 === start2 ? end1 - end2 : start1 - start2;
 );
 
 const stack = [];
