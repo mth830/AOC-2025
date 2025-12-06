@@ -8,7 +8,7 @@ const isValidID = num => {
     if (!Number.isInteger(numString.length / size)) {
       continue;
     }
-    const splitNumbers = []
+    const splitNumbers = [];
     for (let j = 0; j < numString.length; j += size) {
       splitNumbers.push(numString.slice(j, j + size));
     }
