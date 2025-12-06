@@ -19,22 +19,22 @@ const reorder = grid => {
   return newGrid;
 };
 
+const hasSpace = str => str[0] === " " || str.at(-1) === " ";
 
 const reorderGrid2 = grid => {
   const newGrid = [];
-  let i = 0;
+  let isStartOfRow = true;
   let operation = null;
   let row = [];
   grid.push("  ");
   for (const elem of grid) {
-    if (i === 0) {
+    if (isStartOfRow) {
       operation = elem.at(-1);
       const num = Number(elem.slice(0, elem.length - 1));
-      i++;
+      isStartOfRow = false;
       row.push(num);
-    }
-    else if (elem.split('').every(x => x === " ")) {
-      i = 0;
+    } else if (hasSpace(elem) && elem.split('').every(x => x === " ")) {
+      isStartOfRow = true;
       row.push(operation);
       newGrid.push(row);
       row = [];
@@ -44,7 +44,8 @@ const reorderGrid2 = grid => {
   }
 
   return newGrid;
-}
+};
+
 const reordered = reorderGrid2(reorder(grid));
 
 const sumRows = reordered.filter(row => row.at(-1) === '+');
